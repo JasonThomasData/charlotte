@@ -56,7 +56,7 @@ module text(width, fontsize)
 module spin_shaft() {
     distance = 43;
     small_radius = 1.2;
-    large_radius = 2.5;
+    large_radius = 3;
     small_depth = 3;
     large_depth = 2;
 
