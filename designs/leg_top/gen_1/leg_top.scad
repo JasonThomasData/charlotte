@@ -1,3 +1,5 @@
+use <../../Writescad/Write.scad>
+
 //////////////////////////
 // MOTOR - HOLDER
 
@@ -29,10 +31,10 @@ module motor() {
 //////////////////////////
 // LEG
 
-module leg() {
+module leg(width) {
     thickness = 5;
     length = 33;
-    width = 16;
+    
     points = [[0,0],[0,length],[width,length],[width,0]];
 
     linear_extrude(height=thickness)
@@ -41,6 +43,13 @@ module leg() {
             translate([6, 2.5])
                 motor();
         }
+}
+
+module text(width, fontsize)
+{
+    translate([width-1, 1.5, 1.5])
+        rotate([90, 0, 90])
+            write("bottom", h=fontsize);
 }
 
 //////////////////////////
@@ -69,18 +78,29 @@ module spin_shaft_socket() {
     width = 8;
     depth = 5;
 
-    translate([-8,distance,11])
+    translate([-8, distance, 11])
             linear_extrude(height=depth)
                 square([width, width]);
 }
 
+
+//////////////////////////
+// GLOBALS
+
+width = 16;
+fontsize = 3;
+
 //////////////////////////
 // RENDER
 
-leg();
 difference() {
-    rotate([0,90,0])
+    rotate([0, 90, 0])
         spin_shaft_socket();
-    rotate([0,90,0])
+    rotate([0, 90, 0])
         spin_shaft();
+}
+difference()
+{
+    leg(width);
+    text(width, fontsize);
 }
