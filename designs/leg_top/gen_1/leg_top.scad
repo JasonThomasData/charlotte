@@ -49,7 +49,7 @@ module text(width, fontsize)
 {
     translate([width-1, 1.5, 1.5])
         rotate([90, 0, 90])
-            write("bottom", h=fontsize);
+            write("top", h=fontsize);
 }
 
 //////////////////////////
