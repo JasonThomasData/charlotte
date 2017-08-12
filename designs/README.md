@@ -17,3 +17,7 @@ Where there are non-symmetrical elements in an .stl, you'll need to print an equ
 mirrored objects.
 
 The WriteScad code was from [here](https://www.thingiverse.com/thing:16193)
+
+### Printing the base
+
+When you print the base, it will be best to use a heated glass plate. Since the shape covers such a large area, the bottom will cool as the top is still hot and it will warp.
