@@ -67,8 +67,12 @@ module schampfer()
 
 module text(width, fontsize)
 {
-    translate([width-0.5, 1.5, 1.5])
-        rotate([90, 0, 90])
+    x = width-0.5;
+    y = 1.5;
+    z = 4.5;
+
+    translate([x, y, z])
+        rotate([0, 0, 90])
             write("bottom", h = fontsize);
 }
 
@@ -83,7 +87,10 @@ fontsize = 3;
 
 difference()
 {
-    leg(width);
-    schampfer();
+    difference()
+    {
+        leg(width);
+        schampfer();
+    }
+    text(width, fontsize);
 }
-text(width, fontsize);

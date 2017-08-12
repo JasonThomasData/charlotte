@@ -55,12 +55,12 @@ module leg(width)
 
 module text(width, fontsize)
 {
-    x = 0.5;
+    x = 1.2;
     y = 1.5;
-    z = 1.5;
+    z = 4.5;
 
     translate([width - x, y, z])
-        rotate([90, 0, 90])
+        rotate([0, 0, 90])
             write("top", h = fontsize);
 }
 
@@ -116,5 +116,8 @@ difference()
     spin_shaft_socket();
     spin_shaft();
 }
-leg(width);
-text(width, fontsize);
+difference()
+{
+    leg(width);
+    text(width, fontsize);
+}

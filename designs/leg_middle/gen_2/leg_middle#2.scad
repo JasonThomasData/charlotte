@@ -46,12 +46,13 @@ module leg(width)
 
 module text(width, fontsize)
 {
-    x = width-0.5;
+    x = width-0.3;
     y = 1.5;
-    z = 1.5;
+    z = 4.5;
+
     translate([x, y, z])
-        rotate([90, 0, 90])
-            write("middle", h=fontsize);
+        rotate([0, 0, 90])
+            write("middle", h = fontsize);
 }
 
 //////////////////////////
@@ -85,7 +86,10 @@ fontsize = 3;
 
 difference()
 {
-    leg(width);
-    spin_shaft();
+    difference()
+    {
+        leg(width);
+        spin_shaft();
+    }
+    text(width, fontsize);
 }
-text(width, fontsize);
