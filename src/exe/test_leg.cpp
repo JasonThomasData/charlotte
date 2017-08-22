@@ -19,6 +19,7 @@ int main(int argc, char* argv[])
     int servo_2_pin = 2;
 
     LegDriver leg_0(servo_0_pin, servo_1_pin, servo_2_pin);
+    
     leg_0.up();
     usleep(1000000);
     leg_0.anti_clockwise();
