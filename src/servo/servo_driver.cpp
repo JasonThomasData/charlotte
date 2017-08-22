@@ -6,7 +6,7 @@
 
 ServoDriver::ServoDriver(int pin_number)
 {
-    range = 100; //Not application logic, this is a wiringPi setting. This works for the positions
+    range = 140; //Not application logic, this is a wiringPi setting. This works for the positions
     config_pin(pin_number);
 }
 
@@ -26,17 +26,17 @@ void ServoDriver::off()
 
 void ServoDriver::goto_0_degrees()
 {
-    int pwm_signal = 2;
+    int pwm_signal = 3;
     softPwmWrite(pin_number, pwm_signal);
 }
 
-void ServoDriver::goto_49_degrees()
+void ServoDriver::goto_45_degrees()
 {
     int pwm_signal = 8;
     softPwmWrite(pin_number, pwm_signal);
 }
 
-void ServoDriver::goto_57_degrees()
+void ServoDriver::goto_54_degrees()
 {
     int pwm_signal = 9;
     softPwmWrite(pin_number, pwm_signal);
@@ -48,25 +48,25 @@ void ServoDriver::goto_90_degrees()
     softPwmWrite(pin_number, pwm_signal);
 }
 
-void ServoDriver::goto_115_degrees()
+void ServoDriver::goto_117_degrees()
 {
     int pwm_signal = 16;
     softPwmWrite(pin_number, pwm_signal);
 }
 
-void ServoDriver::goto_123_degrees()
+void ServoDriver::goto_126_degrees()
 {
     int pwm_signal = 17;
     softPwmWrite(pin_number, pwm_signal);
 }
 
-void ServoDriver::goto_131_degrees()
+void ServoDriver::goto_135_degrees()
 {
     int pwm_signal = 19;
     softPwmWrite(pin_number, pwm_signal);
 }
 
-void ServoDriver::goto_148_degrees()
+void ServoDriver::goto_153_degrees()
 {
     int pwm_signal = 20;
     softPwmWrite(pin_number, pwm_signal);
@@ -74,6 +74,6 @@ void ServoDriver::goto_148_degrees()
 
 void ServoDriver::goto_180_degrees()
 {
-    int pwm_signal = 24;
+    int pwm_signal = 23;
     softPwmWrite(pin_number, pwm_signal);
 }

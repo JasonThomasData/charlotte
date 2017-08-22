@@ -11,7 +11,7 @@ void LegDriver::clockwise()
 {
     bottom_servo.off();
     middle_servo.off();
-    top_servo.goto_123_degrees();
+    top_servo.goto_126_degrees();
 }
 
 void LegDriver::middle()
@@ -25,7 +25,7 @@ void LegDriver::anti_clockwise()
 {
     bottom_servo.off();
     middle_servo.off();
-    top_servo.goto_57_degrees();
+    top_servo.goto_54_degrees();
 }
 
 //////////////
@@ -33,15 +33,15 @@ void LegDriver::anti_clockwise()
 
 void LegDriver::up()
 {
-    bottom_servo.goto_115_degrees();
-    middle_servo.goto_148_degrees();
+    bottom_servo.goto_117_degrees();
+    middle_servo.goto_153_degrees();
     top_servo.off();
 }
 
 void LegDriver::down()
 {
-    bottom_servo.goto_49_degrees();
-    middle_servo.goto_49_degrees();
+    bottom_servo.goto_45_degrees();
+    middle_servo.goto_45_degrees();
     top_servo.off();
 }
 
@@ -55,6 +55,6 @@ void LegDriver::extend_flat()
 void LegDriver::rest()
 {
     bottom_servo.goto_90_degrees();
-    middle_servo.goto_131_degrees();
+    middle_servo.goto_135_degrees();
     top_servo.off();
 }
