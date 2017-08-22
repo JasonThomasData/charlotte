@@ -4,7 +4,7 @@ opposing digits move at once.
 
 ### Install
 
-To install dependencies and build the project, run ./install.sh
+To install dependencies and build the project, run `./install.sh`
 That will also clean up the build objects.
 
 ### Build
@@ -16,7 +16,7 @@ When you're done, clean it up with ```make clean```.
 
 ### Tests
 
-I do like tests, and will have them, but they are to come.
+At the moment, all tests are for the servos. All in /bin/test_*.
 
 ### Licence
 

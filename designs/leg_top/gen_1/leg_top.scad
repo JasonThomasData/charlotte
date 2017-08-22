@@ -1,5 +1,3 @@
-use <../../Writescad/Write.scad>
-
 //////////////////////////
 // MOTOR - HOLDER
 
@@ -49,7 +47,7 @@ module text(width, fontsize)
 {
     translate([width-1, 1.5, 1.5])
         rotate([90, 0, 90])
-            write("bottom", h=fontsize);
+            write("top", h=fontsize);
 }
 
 //////////////////////////
@@ -99,8 +97,4 @@ difference() {
     rotate([0, 90, 0])
         spin_shaft();
 }
-difference()
-{
-    leg(width);
-    text(width, fontsize);
-}
+leg(width);

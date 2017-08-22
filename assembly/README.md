@@ -12,13 +12,13 @@ board and the servo's signal wire, in case of any unwanted surges.
 
 To assemble the legs, don't screw the servos in at first. Run `./bin/test_leg`. That program will make the horizontal servo end at 90 degrees, or half way around, and the vertical-moving servos will each be flat. Once the servos are in their starting positions, screw them tight to their adjoining braces in this configuration:
 
-[pic_of_leg_assembly](pics/pic_of_leg_assembly.jpg)
+![pic_of_leg_assembly](pics/pic_of_leg_assembly.jpg)
 
 Now they're screwed in, you can run `.test/leg` again for this servo and you will see it do a full
 walk rotation, and then return to its flat position. Once configured and tested, this leg can be
 attached to the base of the robot, in this configuration:
 
-[pic_of_attached_leg](pics/pic_of_attached_leg.jpg)
+![pic_of_attached_leg](pics/pic_of_attached_leg.jpg)
 
 When all legs are tested and assembled, they can be screwed into the board, like the leg above, and their pins attached to the Raspberry Pi GPIO pins. The pins each leg will use are defined in the robot class, however, those should be:
 

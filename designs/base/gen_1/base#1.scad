@@ -1,7 +1,7 @@
 use <../../Writescad/Write.scad>
 
 ////////////////////////
-// MODULES
+// HOLES
 
 module screw_hole(x,y)
 {
@@ -47,6 +47,21 @@ module all_screw_buffers(z)
     screw_buffer(3,72,z);
 }
 
+module wire_holes(base_width)
+{
+    translate([18,base_width-12,0])
+        circle(r=6);
+    translate([base_width-18,base_width-12,0])
+        circle(r=6);
+    translate([base_width-18,12,0])
+        circle(r=6);
+    translate([18,12,0])
+        circle(r=6);
+}
+
+////////////////////////
+// BASE
+
 module arrow()
 {
     triangle_shape = [
@@ -73,13 +88,13 @@ module base(base_width, base_thickness, arrow_pos)
 
 module text(base_width)
 {   
-    translate([7, base_width-11, 2])
+    translate([6, base_width-10, 2])
         write("0");
-    translate([base_width-10, base_width-10, 2])
+    translate([base_width-9, base_width-10, 2])
         write("1");
-    translate([base_width-10, 6, 2])
+    translate([base_width-9, 6, 2])
         write("2");
-    translate([7, 6, 2])
+    translate([6, 6, 2])
         write("3");
 }
 
@@ -93,14 +108,16 @@ arrow_pos = [18,45];
 ////////////////////////
 // RENDERS
 
-
 all_screw_buffers(base_thickness);
 difference()
 {
     linear_extrude(0,0,base_thickness)
         difference()
         {
-            base(base_width, base_thickness, arrow_pos);
+            difference()
+            {
+                base(base_width, base_thickness, arrow_pos);          wire_holes(base_width);      
+            }
             all_screw_holes();
         }
     text(base_width);
