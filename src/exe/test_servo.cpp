@@ -14,15 +14,11 @@ int main(int argc, char* argv[])
     int servo_pin = 0;
     ServoDriver servo(servo_pin);
 
-    int min_position = 1;
-    int mid_position = 12;
-    int max_position = 23;
-
-    servo.change_position(min_position);
+    servo.goto_0_degrees();
     usleep(1000000);
-    servo.change_position(max_position);
+    servo.goto_180_degrees();
     usleep(1000000);
-    servo.change_position(mid_position);
+    servo.goto_90_degrees();
     usleep(1000000);
 
     return 0;

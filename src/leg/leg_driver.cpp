@@ -4,38 +4,28 @@ LegDriver::LegDriver(int bottom_pin, int middle_pin, int top_pin)
     :bottom_servo(bottom_pin), middle_servo(middle_pin), top_servo(top_pin)
 {}
 
-void LegDriver::update_servos(int bottom_pos, int middle_pos, int top_pos)
-{
-    bottom_servo.change_position(bottom_pos);
-    middle_servo.change_position(middle_pos);
-    top_servo.change_position(top_pos);
-}
-
 //////////////
 // Horizontal
 
 void LegDriver::clockwise()
 {
-    int bottom_pos = 0;
-    int middle_pos = 0;
-    int top_pos = 18;
-    update_servos(bottom_pos, middle_pos, top_pos);
+    bottom_servo.off();
+    middle_servo.off();
+    top_servo.goto_123_degrees();
 }
 
 void LegDriver::middle()
 {
-    int bottom_pos = 0;
-    int middle_pos = 0;
-    int top_pos = 14;
-    update_servos(bottom_pos, middle_pos, top_pos);
+    bottom_servo.off();
+    middle_servo.off();
+    top_servo.goto_90_degrees();
 }
 
 void LegDriver::anti_clockwise()
 {
-    int bottom_pos = 0;
-    int middle_pos = 0;
-    int top_pos = 10;
-    update_servos(bottom_pos, middle_pos, top_pos);
+    bottom_servo.off();
+    middle_servo.off();
+    top_servo.goto_57_degrees();
 }
 
 //////////////
@@ -43,32 +33,28 @@ void LegDriver::anti_clockwise()
 
 void LegDriver::up()
 {
-    int bottom_pos = 16;
-    int middle_pos = 20;
-    int top_pos = 0;
-    update_servos(bottom_pos, middle_pos, top_pos);
+    bottom_servo.goto_115_degrees();
+    middle_servo.goto_148_degrees();
+    top_servo.off();
 }
 
 void LegDriver::down()
 {
-    int bottom_pos = 8;
-    int middle_pos = 8;
-    int top_pos = 0;
-    update_servos(bottom_pos, middle_pos, top_pos);
+    bottom_servo.goto_49_degrees();
+    middle_servo.goto_49_degrees();
+    top_servo.off();
 }
 
 void LegDriver::extend_flat()
 {
-    int bottom_pos = 2;
-    int middle_pos = 13;
-    int top_pos = 0;
-    update_servos(bottom_pos, middle_pos, top_pos);
+    bottom_servo.goto_0_degrees();
+    middle_servo.goto_90_degrees();
+    top_servo.off();
 }
 
 void LegDriver::rest()
 {
-    int bottom_pos = 13;
-    int middle_pos = 18;
-    int top_pos = 0;
-    update_servos(bottom_pos, middle_pos, top_pos);
+    bottom_servo.goto_90_degrees();
+    middle_servo.goto_131_degrees();
+    top_servo.off();
 }

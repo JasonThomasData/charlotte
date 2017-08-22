@@ -10,7 +10,6 @@ class LegDriver : public ILegDriver
         ServoDriver bottom_servo;
         ServoDriver middle_servo;
         ServoDriver top_servo;
-        void update_servos(int bottom_pos, int middle_pos, int top_pos);
     public:
         LegDriver(int bottom_pin, int middle_pin, int top_pin);
         void clockwise() override;
