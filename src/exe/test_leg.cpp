@@ -1,8 +1,10 @@
+#include <memory>
 #include <wiringPi.h>
 #include <iostream>
 #include <unistd.h>
 
 #include "../leg/leg_driver.h"
+#include "../servo/i_servo_driver.h"
 #include "../servo/servo_driver.h"
 
 /* test_leg.cpp
@@ -14,12 +16,14 @@ int main(int argc, char* argv[])
 {
     if (wiringPiSetup() < 0) return 1;
 
-    int servo_0_pin = 0;
-    int servo_1_pin = 1;
-    int servo_2_pin = 2;
+    std::unique_ptr<IServoDriver> servo_0 = std::make_unique<ServoDriver>(0);
+    std::unique_ptr<IServoDriver> servo_1 = std::make_unique<ServoDriver>(1);
+    std::unique_ptr<IServoDriver> servo_2 = std::make_unique<ServoDriver>(2);
 
-    LegDriver leg_0(servo_0_pin, servo_1_pin, servo_2_pin);
-    
+    LegDriver leg_0(std::move(servo_0),
+                    std::move(servo_1),
+                    std::move(servo_2));
+
     leg_0.up();
     usleep(1000000);
     leg_0.anti_clockwise();

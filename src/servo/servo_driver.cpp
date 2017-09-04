@@ -36,6 +36,7 @@ void ServoDriver::goto_45_degrees()
     softPwmWrite(pin_number, pwm_signal);
 }
 
+//Merge all of these into 8
 void ServoDriver::goto_54_degrees()
 {
     int pwm_signal = 9;
@@ -60,6 +61,7 @@ void ServoDriver::goto_126_degrees()
     softPwmWrite(pin_number, pwm_signal);
 }
 
+//Make this 18
 void ServoDriver::goto_135_degrees()
 {
     int pwm_signal = 19;
