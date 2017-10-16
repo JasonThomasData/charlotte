@@ -3,7 +3,7 @@
 #include <iostream>
 #include <unistd.h>
 
-#include "../leg/leg_driver.h"
+#include "../leg/leg_driver_02.h"
 #include "../servo/i_servo_driver.h"
 #include "../servo/servo_driver.h"
 
@@ -20,9 +20,9 @@ int main(int argc, char* argv[])
     std::unique_ptr<IServoDriver> servo_1 = std::make_unique<ServoDriver>(1);
     std::unique_ptr<IServoDriver> servo_2 = std::make_unique<ServoDriver>(2);
 
-    LegDriver leg_0(std::move(servo_0),
-                    std::move(servo_1),
-                    std::move(servo_2));
+    LegDriver_02 leg_0(std::move(servo_0),
+                       std::move(servo_1),
+                       std::move(servo_2));
 
     leg_0.up();
     usleep(1000000);
