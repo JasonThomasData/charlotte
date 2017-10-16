@@ -17,8 +17,10 @@ class ServoDriver : public IServoDriver
         ServoDriver(int pin_number);
         void off() override;
         void goto_0_degrees() override;
+        void goto_27_degrees() override;
         void goto_45_degrees() override;
         void goto_54_degrees() override;
+        void goto_63_degrees() override;
         void goto_90_degrees() override;
         void goto_117_degrees() override;
         void goto_126_degrees() override;
