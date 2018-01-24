@@ -37,9 +37,9 @@ Screw them into the servo shafts, but not tight at first. It's important they're
 
 You will want to know what the board's pin configuration is at this point, and the simplest way is to enter `GPIO` at the terminal. It should give you a table of your board's pin config. Use the wiringPi pin numbers.
 
-For a normal leg, which is not a mirrored leg, use the Pi board's pins 0 (bottom), 1 (middle), and 2 (top) for the signal wires. When the servos are all connected run the leg_0_test in bin/.
+For a normal leg, which is not a mirrored leg, use the Pi board's pins 0 (bottom), 1 (middle), and 2 (top) for the signal wires. When the servos are all connected run `./bin/test_leg`.
 
-For a mirrored leg, it's the same, but you want to use pins 3 (bottom), 4 (midddle) and 5 (top), and run bin/leg_1_test
+For a mirrored leg, it's the same, but you want to use pins 3 (bottom), 4 (midddle) and 5 (top), and run bin/leg_1_test -- this is no longer the case, update this
 
 Each servo in each leg will do a series of things and then stop at the positions where the leg would be fully extended, so, you can now put the leg on a flat surface and screw the screws in tighter. You might want to use a mild adhesive, like some kind of thread-tight solution to make the screw, shaft and leg component stay in place.
 
