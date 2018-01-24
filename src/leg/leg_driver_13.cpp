@@ -13,28 +13,21 @@ LegDriver_13::LegDriver_13(std::unique_ptr<IServoDriver> bottom_to_add,
 
 void LegDriver_13::up()
 {
-    bottom_servo->goto_117_degrees();
+    bottom_servo->goto_153_degrees();
     middle_servo->goto_153_degrees();
     top_servo->off();
 }
 
 void LegDriver_13::down()
 {
-    bottom_servo->goto_45_degrees();
+    bottom_servo->goto_90_degrees();
     middle_servo->goto_45_degrees();
     top_servo->off();
 }
 
 void LegDriver_13::extend_flat()
 {
-    bottom_servo->goto_0_degrees();
+    bottom_servo->goto_45_degrees();
     middle_servo->goto_90_degrees();
-    top_servo->off();
-}
-
-void LegDriver_13::rest()
-{
-    bottom_servo->goto_90_degrees();
-    middle_servo->goto_135_degrees();
     top_servo->off();
 }

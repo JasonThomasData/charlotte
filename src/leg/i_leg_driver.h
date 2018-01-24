@@ -10,7 +10,6 @@ class ILegDriver
         virtual void up() = 0;
         virtual void down() = 0;
         virtual void extend_flat() = 0;
-        virtual void rest() = 0;
 };
 
 #endif

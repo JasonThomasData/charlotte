@@ -14,7 +14,6 @@ class LegDriver_13 : public LegDriverBase
         void up() override;
         void down() override;
         void extend_flat() override;
-        void rest() override;
 };
 
 #endif

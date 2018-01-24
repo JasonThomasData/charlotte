@@ -5,6 +5,8 @@
 
 #include "leg_driver_base.h"
 
+// NOTE - To save future confusion, this is the prototype leg.
+
 class LegDriver_02 : public LegDriverBase
 {
     public:
@@ -14,7 +16,6 @@ class LegDriver_02 : public LegDriverBase
         void up() override;
         void down() override;
         void extend_flat() override;
-        void rest() override;
 };
     
 #endif
