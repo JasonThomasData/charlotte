@@ -1,11 +1,11 @@
 #include <memory>
 
-#include "../leg/i_leg_driver.h"
-#include "../leg/leg_driver_02.h"
-#include "../leg/leg_driver_13.h"
-#include "../servo/i_servo_driver.h"
-#include "../servo/servo_driver.h"
-#include "../charlotte/charlotte.h"
+#include "leg/i_leg_driver.h"
+#include "leg/leg_driver_02.h"
+#include "leg/leg_driver_13.h"
+#include "servo/i_servo_driver.h"
+#include "servo/servo_driver.h"
+#include "charlotte/charlotte.h"
 
 namespace Builder
 {
