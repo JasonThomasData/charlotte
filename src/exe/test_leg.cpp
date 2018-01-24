@@ -1,6 +1,5 @@
 #include <memory>
 #include <wiringPi.h>
-#include <iostream>
 #include <unistd.h>
 
 #include "../leg/i_leg_driver.h"
