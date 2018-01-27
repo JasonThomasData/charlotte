@@ -5,6 +5,8 @@
  * positions.h. The best middle position seems to be 13 (2+11=13+11=24).
  */
 
+#include <string>
+
 #include "i_servo_driver.h"
 
 class ServoDriver : public IServoDriver
@@ -27,6 +29,7 @@ class ServoDriver : public IServoDriver
         void goto_135_degrees() override;
         void goto_153_degrees() override;
         void goto_180_degrees() override;
+        std::string get_test_result() override;
 };
 
 #endif
