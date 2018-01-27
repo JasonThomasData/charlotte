@@ -18,7 +18,6 @@ class IServoDriver
         virtual void goto_135_degrees() = 0;
         virtual void goto_153_degrees() = 0;
         virtual void goto_180_degrees() = 0;
-        virtual std::string get_test_result() = 0;
 };
 
 #endif

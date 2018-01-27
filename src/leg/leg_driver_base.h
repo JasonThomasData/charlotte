@@ -12,9 +12,9 @@
 class LegDriverBase : public ILegDriver
 {
     protected:
-        std::unique_ptr<IServoDriver> bottom_servo;
-        std::unique_ptr<IServoDriver> middle_servo;
-        std::unique_ptr<IServoDriver> top_servo;
+        IServoDriver bottom_servo;
+        IServoDriver middle_servo;
+        IServoDriver top_servo;
     public:
         void clockwise() override;
         void middle() override;

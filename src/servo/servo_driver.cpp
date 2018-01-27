@@ -91,5 +91,3 @@ void ServoDriver::goto_180_degrees()
     int pwm_signal = 3;
     softPwmWrite(pin_number, pwm_signal);
 }
-
-std::string ServoDriver::get_test_result() {}

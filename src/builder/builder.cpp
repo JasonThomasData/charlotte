@@ -6,17 +6,14 @@
 #include "../leg/leg_driver_13.h"
 #include "../robot/robot.h"
 
-Robot Builder::build_robot()
+Robot& Builder::build_robot()
 {
-    std::unique_ptr<ILegDriver> leg_0 = build_leg<LegDriver_02>(0, 1, 2);
-    std::unique_ptr<ILegDriver> leg_1 = build_leg<LegDriver_13>(3, 4, 5);
-    std::unique_ptr<ILegDriver> leg_2 = build_leg<LegDriver_02>(6, 7, 8);
-    std::unique_ptr<ILegDriver> leg_3 = build_leg<LegDriver_13>(9, 10, 11);
+    ILegDriver& leg_0 = Builder::build_leg<LegDriver_02>(0, 1, 2);
+    ILegDriver& leg_1 = Builder::build_leg<LegDriver_13>(3, 4, 5);
+    ILegDriver& leg_2 = Builder::build_leg<LegDriver_02>(6, 7, 8);
+    ILegDriver& leg_3 = Builder::build_leg<LegDriver_13>(9, 10, 11);
 
-    Robot robot = Robot(std::move(leg_0),
-                        std::move(leg_1),
-                        std::move(leg_2),
-                        std::move(leg_3));
+    Robot robot = new Robot(leg_0, leg_1, leg_2, leg_3);
 
     return robot;
 }
