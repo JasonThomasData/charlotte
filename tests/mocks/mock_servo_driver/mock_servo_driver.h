@@ -8,7 +8,6 @@
 class MockServoDriver : public IServoDriver
 {
     public:
-        std::string test_result;
         MockServoDriver();
         void off() override;
         void goto_0_degrees() override;
@@ -22,7 +21,6 @@ class MockServoDriver : public IServoDriver
         void goto_135_degrees() override;
         void goto_153_degrees() override;
         void goto_180_degrees() override;
-        std::string get_test_result() override;
 };
 
 #endif
