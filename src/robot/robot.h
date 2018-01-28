@@ -8,13 +8,15 @@
 class Robot
 {
     private:
-        ILegDriver* leg_0;
-        ILegDriver* leg_1;
-        ILegDriver* leg_2;
-        ILegDriver* leg_3;
+        std::unique_ptr<ILegDriver> leg_0;
+        std::unique_ptr<ILegDriver> leg_1;
+        std::unique_ptr<ILegDriver> leg_2;
+        std::unique_ptr<ILegDriver> leg_3;
     public:
-        Robot(ILegDriver* leg_0_to_add, ILegDriver* leg_1_to_add,
-              ILegDriver* leg_2_to_add, ILegDriver* leg_3_to_add);
+        Robot(std::unique_ptr<ILegDriver> leg_0_to_add,
+              std::unique_ptr<ILegDriver> leg_1_to_add,
+              std::unique_ptr<ILegDriver> leg_2_to_add,
+              std::unique_ptr<ILegDriver> leg_3_to_add);
         void walk_forward();
         //void walk_backward();
         //void turn_left();

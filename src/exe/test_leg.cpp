@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
 {
     if (wiringPiSetup() < 0) return 1;
 
-    ILegDriver* leg_0 = Builder::build_leg<LegDriver_02>(0, 1, 2);
+    std::unique_ptr<ILegDriver> leg_0 = Builder::build_leg<LegDriver_02>(0, 1, 2);
 
     leg_0->up();
     usleep(1000000);
