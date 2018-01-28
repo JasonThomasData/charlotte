@@ -18,5 +18,5 @@ namespace Builder
 
         return leg;
     }
-    Robot build_robot();
+    Robot& build_robot();
 }

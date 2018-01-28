@@ -4,10 +4,8 @@
 #include "../leg/i_leg_driver.h" 
 #include "robot.h"
 
-Robot::Robot(ILegDriver& leg_0_to_add,
-             ILegDriver& leg_1_to_add,
-             ILegDriver& leg_2_to_add,
-             ILegDriver& leg_3_to_add)
+Robot::Robot(ILegDriver& leg_0_to_add, ILegDriver& leg_1_to_add,
+             ILegDriver& leg_2_to_add, ILegDriver& leg_3_to_add)
     :leg_0(leg_0_to_add), leg_1(leg_1_to_add), leg_2(leg_2_to_add), leg_3(leg_3_to_add){};
 
 void Robot::walk_forward()
