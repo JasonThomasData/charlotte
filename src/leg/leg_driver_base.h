@@ -12,9 +12,9 @@
 class LegDriverBase : public ILegDriver
 {
     protected:
-        IServoDriver bottom_servo;
-        IServoDriver middle_servo;
-        IServoDriver top_servo;
+        IServoDriver* bottom_servo;
+        IServoDriver* middle_servo;
+        IServoDriver* top_servo;
     public:
         void clockwise() override;
         void middle() override;

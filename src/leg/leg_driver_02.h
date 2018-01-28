@@ -12,13 +12,13 @@
 class LegDriver_02 : public ILegDriver
 {
     private:
-        IServoDriver& bottom_servo;
-        IServoDriver& middle_servo;
-        IServoDriver& top_servo;
+        IServoDriver* bottom_servo;
+        IServoDriver* middle_servo;
+        IServoDriver* top_servo;
     public:
-        LegDriver_02(IServoDriver& bottom_to_add,
-                     IServoDriver& middle_to_add,
-                     IServoDriver& top_to_add);
+        LegDriver_02(IServoDriver* bottom_to_add,
+                     IServoDriver* middle_to_add,
+                     IServoDriver* top_to_add);
         void up() override;
         void down() override;
         void extend_flat() override;
