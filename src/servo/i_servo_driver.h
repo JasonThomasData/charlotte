@@ -1,8 +1,6 @@
 #ifndef IServoDriver_h
 #define IServoDriver_h
 
-#include <string>
-
 class IServoDriver
 {
     public:
