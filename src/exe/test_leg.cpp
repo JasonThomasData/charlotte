@@ -2,8 +2,11 @@
 #include <wiringPi.h>
 #include <unistd.h>
 
+#include "../servo/i_servo_driver.h"
+#include "../servo/servo_driver.h"
 #include "../leg/i_leg_driver.h"
 #include "../leg/leg_driver_02.h"
+
 #include "../builder/builder.h"
 
 /* test_leg.cpp
@@ -15,7 +18,11 @@ int main(int argc, char* argv[])
 {
     if (wiringPiSetup() < 0) return 1;
 
-    ILegDriver* leg_0 = Builder::build_leg<LegDriver_02>(0, 1, 2);
+    IServoDriver* servo_0 = new ServoDriver(0);
+    IServoDriver* servo_1 = new ServoDriver(1);
+    IServoDriver* servo_2 = new ServoDriver(2);
+
+    ILegDriver* leg_0 = new LegDriver_02(servo_0, servo_1, servo_2);
 
     leg_0->up();
     usleep(1000000);

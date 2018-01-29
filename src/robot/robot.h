@@ -4,6 +4,7 @@
 #include <memory>
 
 #include "../leg/i_leg_driver.h" 
+#include "../sleep/i_sleep.h" 
 
 class Robot
 {
@@ -12,11 +13,11 @@ class Robot
         ILegDriver* leg_1;
         ILegDriver* leg_2;
         ILegDriver* leg_3;
-        int action_duration;
+        ISleep* sleep;
     public:
         Robot(ILegDriver* leg_0_to_add, ILegDriver* leg_1_to_add,
               ILegDriver* leg_2_to_add, ILegDriver* leg_3_to_add,
-              int action_duration);
+              ISleep* sleep);
         void walk_forward();
         //void walk_backward();
         //void turn_left();
