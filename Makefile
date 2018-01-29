@@ -3,7 +3,7 @@ all: application_objects test_objects exe_objects exe
 phony: all clean
 
 application_objects: build/servo_driver.o build/leg_driver_base.o build/leg_driver_02.o build/leg_driver_13.o build/robot.o build/builder.o
-test_objects: build/leg_unit_tests.o
+test_objects: build/leg_unit_tests.o build/robot_unit_tests.o
 exe_objects: build/test_servo.o build/test_leg.o build/unit_tests.o build/charlotte.o
 exe: test_servo test_leg unit_tests charlotte
 
@@ -34,6 +34,9 @@ build/robot.o: src/robot/robot.cpp
 build/leg_unit_tests.o: tests/unit/leg.cpp
 	g++ -c -std=c++14 tests/unit/leg.cpp -o build/leg_unit_tests.o
 
+build/robot_unit_tests.o: tests/unit/robot.cpp
+	g++ -c -std=c++14 tests/unit/robot.cpp -o build/robot_unit_tests.o
+
 
 # Exe objects
 
@@ -59,7 +62,7 @@ test_leg:
 	g++ -std=c++14 build/servo_driver.o build/leg_driver_base.o build/leg_driver_02.o build/leg_driver_13.o build/test_leg.o build/robot.o build/builder.o -o bin/test_leg -lwiringPi -pthread
 
 unit_tests:
-	g++ -std=c++14 build/leg_driver_base.o build/leg_driver_02.o build/leg_driver_13.o build/leg_unit_tests.o build/unit_tests.o -o bin/unit_tests
+	g++ -std=c++14 build/leg_driver_base.o build/leg_driver_02.o build/leg_driver_13.o build/leg_unit_tests.o build/robot.o build/robot_unit_tests.o build/unit_tests.o -o bin/unit_tests
 
 charlotte:
 	g++ -std=c++14 build/servo_driver.o build/leg_driver_base.o build/leg_driver_02.o build/leg_driver_13.o build/robot.o build/builder.o build/charlotte.o -o bin/charlottei -lwiringPi -pthread
