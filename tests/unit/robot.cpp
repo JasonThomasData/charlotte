@@ -4,6 +4,7 @@
 #include "../../lib/fakeit.hpp"
 
 #include "../../src/leg/i_leg_driver.h"
+#include "../../src/sleep/i_sleep.h"
 #include "../../src/robot/robot.h"
 
 using namespace fakeit;
@@ -22,6 +23,15 @@ Mock<ILegDriver> leg_helper()
     return leg;
 }
 
+Mock<ISleep> sleep_helper()
+{
+    Mock<ISleep> sleep;
+
+    When(Method(sleep, full_move_duration)).AlwaysReturn();
+
+    return sleep;
+}
+
 TEST_CASE("Robot - walk forward")
 {
 
@@ -35,9 +45,10 @@ TEST_CASE("Robot - walk forward")
     ILegDriver* leg_2_ptr = &leg_2.get();
     ILegDriver* leg_3_ptr = &leg_3.get();
 
-    int action_duration = 0;
+    Mock<ISleep> sleep = sleep_helper();
+    ISleep* sleep_ptr = &sleep.get();
 
-    Robot robot = Robot(leg_0_ptr, leg_1_ptr, leg_2_ptr, leg_3_ptr, action_duration);
+    Robot robot = Robot(leg_0_ptr, leg_1_ptr, leg_2_ptr, leg_3_ptr, sleep_ptr);
 
     robot.walk_forward();
 
@@ -45,30 +56,42 @@ TEST_CASE("Robot - walk forward")
             Method(leg_0, up) +
             Method(leg_2, up) +
 
+            Method(sleep, full_move_duration) +
+
             Method(leg_0, anti_clockwise) +
             Method(leg_1, clockwise) +
             Method(leg_2, clockwise) +
             Method(leg_3, anti_clockwise) +
+
+            Method(sleep, full_move_duration) +
 
             Method(leg_0, down) +
             Method(leg_1, up) +
             Method(leg_2, down) +
             Method(leg_3, up) +
 
+            Method(sleep, full_move_duration) +
+
             Method(leg_0, clockwise) +
             Method(leg_1, anti_clockwise) +
             Method(leg_2, anti_clockwise) +
             Method(leg_3, clockwise) +
+
+            Method(sleep, full_move_duration) +
 
             Method(leg_0, up) +
             Method(leg_1, down) +
             Method(leg_2, up) +
             Method(leg_3, down) +
 
+            Method(sleep, full_move_duration) +
+
             Method(leg_0, middle) +
             Method(leg_1, middle) +
             Method(leg_2, middle) +
             Method(leg_3, middle) +
+
+            Method(sleep, full_move_duration) +
 
             Method(leg_0, down) +
             Method(leg_2, down)
