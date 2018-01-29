@@ -12,9 +12,11 @@ class Robot
         ILegDriver* leg_1;
         ILegDriver* leg_2;
         ILegDriver* leg_3;
+        int action_duration;
     public:
         Robot(ILegDriver* leg_0_to_add, ILegDriver* leg_1_to_add,
-              ILegDriver* leg_2_to_add, ILegDriver* leg_3_to_add);
+              ILegDriver* leg_2_to_add, ILegDriver* leg_3_to_add,
+              int action_duration);
         void walk_forward();
         //void walk_backward();
         //void turn_left();

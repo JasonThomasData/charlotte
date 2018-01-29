@@ -12,8 +12,8 @@ Robot* Builder::build_robot()
     ILegDriver* leg_1 = Builder::build_leg<LegDriver_13>(3, 4, 5);
     ILegDriver* leg_2 = Builder::build_leg<LegDriver_02>(6, 7, 8);
     ILegDriver* leg_3 = Builder::build_leg<LegDriver_13>(9, 10, 11);
-
-    Robot* robot = new Robot(leg_0, leg_1, leg_2, leg_3);
+    int thread_sleep = 1000000;
+    Robot* robot = new Robot(leg_0, leg_1, leg_2, leg_3, thread_sleep);
 
     return robot;
 }
