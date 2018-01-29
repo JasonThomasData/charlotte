@@ -3,16 +3,11 @@
 
 #include <memory>
 
-#include "../servo/i_servo_driver.h"
-
 #include "i_leg_driver.h"
+#include "leg_driver_base.h"
 
-class LegDriver_13 : public ILegDriver
+class LegDriver_13 : public LegDriverBase
 {
-    private:
-        IServoDriver* bottom_servo;
-        IServoDriver* middle_servo;
-        IServoDriver* top_servo;
     public:
         LegDriver_13(IServoDriver* bottom_to_add,
                      IServoDriver* middle_to_add,
@@ -20,9 +15,6 @@ class LegDriver_13 : public ILegDriver
         void up() override;
         void down() override;
         void extend_flat() override;
-        void clockwise() override;
-        void middle() override;
-        void anti_clockwise() override;
 };
 
 #endif

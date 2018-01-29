@@ -2,8 +2,8 @@ all: application_objects test_objects exe_objects exe
 
 phony: all clean
 
-application_objects: build/servo_driver.o build/leg_driver_02.o build/leg_driver_13.o build/robot.o build/builder.o
-test_objects: build/mock_servo_driver.o build/leg_unit_tests.o
+application_objects: build/servo_driver.o build/leg_driver_base.o build/leg_driver_02.o build/leg_driver_13.o build/robot.o build/builder.o
+test_objects: build/leg_unit_tests.o
 exe_objects: build/test_servo.o build/test_leg.o build/unit_tests.o build/charlotte.o
 exe: test_servo test_leg unit_tests charlotte
 
@@ -12,6 +12,9 @@ exe: test_servo test_leg unit_tests charlotte
 
 build/servo_driver.o: src/servo/servo_driver.cpp
 	g++ -c -std=c++14 src/servo/servo_driver.cpp -o build/servo_driver.o
+
+build/leg_driver_base.o: src/leg/leg_driver_base.cpp
+	g++ -c -std=c++14 src/leg/leg_driver_base.cpp -o build/leg_driver_base.o
 
 build/leg_driver_02.o: src/leg/leg_driver_02.cpp
 	g++ -c -std=c++14 src/leg/leg_driver_02.cpp -o build/leg_driver_02.o
@@ -27,9 +30,6 @@ build/robot.o: src/robot/robot.cpp
 
 
 # Test objects
-
-build/mock_servo_driver.o: tests/mocks/mock_servo_driver/mock_servo_driver.cpp
-	g++ -c -std=c++14 tests/mocks/mock_servo_driver/mock_servo_driver.cpp -o build/mock_servo_driver.o
 
 build/leg_unit_tests.o: tests/unit/leg.cpp
 	g++ -c -std=c++14 tests/unit/leg.cpp -o build/leg_unit_tests.o
@@ -56,13 +56,13 @@ test_servo:
 	g++ -std=c++14 build/servo_driver.o build/test_servo.o -o bin/test_servo -lwiringPi -pthread
 
 test_leg:
-	g++ -std=c++14 build/servo_driver.o build/leg_driver_02.o build/leg_driver_13.o build/test_leg.o build/robot.o build/builder.o -o bin/test_leg -lwiringPi -pthread
+	g++ -std=c++14 build/servo_driver.o build/leg_driver_base.o build/leg_driver_02.o build/leg_driver_13.o build/test_leg.o build/robot.o build/builder.o -o bin/test_leg -lwiringPi -pthread
 
 unit_tests:
-	g++ -std=c++14 build/leg_driver_02.o build/mock_servo_driver.o build/leg_unit_tests.o build/unit_tests.o -o bin/unit_tests
+	g++ -std=c++14 build/leg_driver_base.o build/leg_driver_02.o build/leg_driver_13.o build/leg_unit_tests.o build/unit_tests.o -o bin/unit_tests
 
 charlotte:
-	g++ -std=c++14 build/servo_driver.o build/leg_driver_02.o build/leg_driver_13.o build/robot.o build/builder.o build/charlotte.o -o bin/charlotte -lwiringPi -pthread
+	g++ -std=c++14 build/servo_driver.o build/leg_driver_base.o build/leg_driver_02.o build/leg_driver_13.o build/robot.o build/builder.o build/charlotte.o -o bin/charlottei -lwiringPi -pthread
 
 
 

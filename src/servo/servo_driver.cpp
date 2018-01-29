@@ -1,7 +1,6 @@
 #include <softPwm.h>
 #include <wiringPi.h>
 #include <iostream>
-#include <string>
 
 #include "servo_driver.h"
 
